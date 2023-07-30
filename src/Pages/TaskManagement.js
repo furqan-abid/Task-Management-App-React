@@ -1,5 +1,6 @@
 // App.js
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import TaskForm from '../Components/TaskForm';
 import TaskList from '../Components/TaskList';
 
@@ -37,12 +38,28 @@ const TaskManagement = () => {
   };
 
   return (
-    <div>
-      <h1>Task Management System</h1>
+    <Main>
+      <Heading>Task Management System</Heading>
       <TaskForm addTask={addTask} />
       <TaskList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} deleteTask={deleteTask} />
-    </div>
+    </Main>
   );
 };
 
 export default TaskManagement;
+
+
+const Main = styled.div`
+width: 100vw;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+`
+
+const Heading = styled.h1`
+height: 10vh;
+display: flex;
+justify-content: center;
+align-items:center;
+`
