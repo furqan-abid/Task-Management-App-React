@@ -1,5 +1,6 @@
 // App.js
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import TaskForm from '../Components/TaskForm';
 import TaskList from '../Components/TaskList';
@@ -19,6 +20,7 @@ const TaskManagement = () => {
       description,
       completed: false,
     };
+    toast.success("Task Added successfully")
     setTasks([...tasks, newTask]);
   };
 
@@ -35,13 +37,24 @@ const TaskManagement = () => {
   // Function to delete a task
   const deleteTask = (taskId) => {
     setTasks(tasks.filter(task => task.id !== taskId));
+
+    toast.success("Task Deleted successfully")
+  };
+
+  const reorderTasks = (startIndex, endIndex) => {
+    setTasks((prevTasks) => {
+      const updatedTasks = Array.from(prevTasks);
+      const [reorderedTask] = updatedTasks.splice(startIndex, 1);
+      updatedTasks.splice(endIndex, 0, reorderedTask);
+      return updatedTasks;
+    });
   };
 
   return (
     <Main>
       <Heading>Task Management System</Heading>
       <TaskForm addTask={addTask} />
-      <TaskList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} deleteTask={deleteTask} />
+      <TaskList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} deleteTask={deleteTask} reorderTasks={reorderTasks}/>
     </Main>
   );
 };

@@ -54,5 +54,6 @@ button{
     background-color: RGB(30, 144, 255);
     color: white;
     border: 1px solid gray;
+    cursor: pointer;
 }
 `
