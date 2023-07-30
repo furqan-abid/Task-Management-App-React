@@ -14,7 +14,7 @@ function App() {
     if (isValidUser(username, password, selectedGroup)) {
       setUser({ username });
     } else {
-      toast.error("Please Fill all feilds")
+      toast.error("Error while login")
     }
   };
 
