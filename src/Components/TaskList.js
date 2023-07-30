@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useTransition, animated, config } from 'react-spring';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { useTransition, animated, config } from "react-spring";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TaskList = ({ tasks, toggleTaskCompletion, deleteTask }) => {
   useEffect(() => {
     // Scroll to the bottom of the list when a new task is added
-    const taskList = document.getElementById('task-list');
+    const taskList = document.getElementById("task-list");
     if (taskList) {
       taskList.scrollTop = taskList.scrollHeight;
     }
@@ -16,9 +15,9 @@ const TaskList = ({ tasks, toggleTaskCompletion, deleteTask }) => {
 
   const taskTransitions = useTransition(tasks, {
     keys: (task) => task.id,
-    from: { opacity: 0, transform: 'scale(0.95)' },
-    enter: { opacity: 1, transform: 'scale(1)' },
-    leave: { opacity: 0, transform: 'scale(0.95)' },
+    from: { opacity: 0, transform: "scale(0.95)" },
+    enter: { opacity: 1, transform: "scale(1)" },
+    leave: { opacity: 0, transform: "scale(0.95)" },
     config: config.gentle, // Adjust animation speed and feel
   });
 
@@ -44,7 +43,6 @@ const TaskList = ({ tasks, toggleTaskCompletion, deleteTask }) => {
 };
 
 export default TaskList;
-
 
 const Main = styled.div`
   min-height: 30vh;
@@ -101,7 +99,8 @@ const ButtonSection = styled.div`
     border-radius: 5px;
     cursor: pointer;
     &:nth-child(1) {
-      background-color: ${(props) => (props.task ? "RGB(255, 255, 0)" : "RGB(144, 238, 144)")};
+      background-color: ${(props) =>
+        props.task ? "RGB(255, 255, 0)" : "RGB(144, 238, 144)"};
     }
     &:nth-child(2) {
       background-color: RGB(204, 0, 0);

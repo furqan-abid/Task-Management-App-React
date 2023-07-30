@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const TaskForm = ({ addTask }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addTask(title, description);
-    setTitle('');
-    setDescription('');
+    setTitle("");
+    setDescription("");
   };
 
   return (
@@ -34,26 +34,26 @@ const TaskForm = ({ addTask }) => {
 
 export default TaskForm;
 
-
 const Form = styled.form`
-display: flex;
-flex-direction: column;
-width: 60%;
-height: 30vh;
-justify-content: space-around;
-margin-top: 1em;
-input,textarea{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 30vh;
+  justify-content: space-around;
+  margin-top: 1em;
+  input,
+  textarea {
     padding: 1em;
-    border-radius: 5px ;
+    border-radius: 5px;
     min-height: 5em;
-}
-button{
+  }
+  button {
     padding: 1em 2em;
-    font-size: clamp(1vw,1em,4em);
+    font-size: clamp(1vw, 1em, 4em);
     border-radius: 5px;
     background-color: RGB(30, 144, 255);
     color: white;
     border: 1px solid gray;
     cursor: pointer;
-}
-`
+  }
+`;

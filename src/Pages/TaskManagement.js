@@ -4,57 +4,17 @@ import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import TaskForm from '../Components/TaskForm';
 import TaskList from '../Components/TaskList';
+import { useTaskContext } from '../Context/TaskContext';
 
-const TaskManagement = () => {
-  // Sample initial data for tasks and user groups
-  const [tasks, setTasks] = useState([
-    { id: 1, title: 'Task 1', description: 'Description for Task 1', completed: false },
-    { id: 2, title: 'Task 2', description: 'Description for Task 2', completed: true },
-  ]);
+const TaskManagement = ({logout}) => {
 
-  // Function to add a new task
-  const addTask = (title, description) => {
-    const newTask = {
-      id: tasks.length + 1,
-      title,
-      description,
-      completed: false,
-    };
-    toast.success("Task Added successfully")
-    setTasks([...tasks, newTask]);
-  };
-
-  // Function to toggle the task's completion status
-  const toggleTaskCompletion = (taskId) => {
-    setTasks(tasks.map(task => {
-      if (task.id === taskId) {
-        return { ...task, completed: !task.completed };
-      }
-      return task;
-    }));
-  };
-
-  // Function to delete a task
-  const deleteTask = (taskId) => {
-    setTasks(tasks.filter(task => task.id !== taskId));
-
-    toast.success("Task Deleted successfully")
-  };
-
-  const reorderTasks = (startIndex, endIndex) => {
-    setTasks((prevTasks) => {
-      const updatedTasks = Array.from(prevTasks);
-      const [reorderedTask] = updatedTasks.splice(startIndex, 1);
-      updatedTasks.splice(endIndex, 0, reorderedTask);
-      return updatedTasks;
-    });
-  };
+  const { tasks, addTask, toggleTaskCompletion, deleteTask } = useTaskContext();
 
   return (
     <Main>
-      <Heading>Task Management System</Heading>
+      <Heading>Task Management System <button onClick={()=>logout()}>Log out</button></Heading>
       <TaskForm addTask={addTask} />
-      <TaskList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} deleteTask={deleteTask} reorderTasks={reorderTasks}/>
+      <TaskList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} deleteTask={deleteTask}/>
     </Main>
   );
 };
@@ -73,6 +33,17 @@ align-items: center;
 const Heading = styled.h1`
 height: 10vh;
 display: flex;
-justify-content: center;
+justify-content: space-between;
 align-items:center;
+width: 60%;
+font-size:3vw;
+button{
+    padding: 0.5em 1em;
+    background-color: RGB(64, 64, 64);
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
 `
