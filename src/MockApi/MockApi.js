@@ -8,24 +8,6 @@ const groups = [
 ];
 
 const tasksByGroup = {
-  1: [
-    {
-      id: 1,
-      groupId: 1,
-      title: "Task 1",
-      description: "Description 1",
-      completed: false,
-    },
-  ],
-  2: [
-    {
-      id: 2,
-      groupId: 2,
-      title: "Task 2",
-      description: "Description 2",
-      completed: true,
-    },
-  ],
 };
 
 const getTasksByGroup = async (groupId) => {

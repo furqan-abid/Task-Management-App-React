@@ -8,16 +8,6 @@ import {
 
 const TaskContext = createContext();
 
-const initialTasksByGroup = {
-  1: [
-    { id: 1, title: "Group 1 Task 1", description: "Description for Group 1 Task 1", completed: false },
-    { id: 2, title: "Group 1 Task 2", description: "Description for Group 1 Task 2", completed: false },
-  ],
-  2: [
-    { id: 1, title: "Group 2 Task 1", description: "Description for Group 2 Task 1", completed: false },
-    { id: 2, title: "Group 2 Task 2", description: "Description for Group 2 Task 2", completed: false },
-  ],
-};
 
 const TaskProvider = ({ children, groupId }) => {
   const [tasks, setTasks] = useState([]);
@@ -27,16 +17,7 @@ const TaskProvider = ({ children, groupId }) => {
       const tasks = await mockGetTasksByGroup(groupId);
       setTasks(tasks);
     };
-
-    if (groupId && groupId !== "") {
-      fetchTasks();
-    } else {
-      if (initialTasksByGroup[groupId]) {
-        setTasks(initialTasksByGroup[groupId]);
-      } else {
-        setTasks([]);
-      }
-    }
+    fetchTasks()
   }, [groupId]);
 
   const addTask = async (title, description) => {

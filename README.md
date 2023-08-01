@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Task Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple task management system that allows users to create, complete, and delete tasks. Users can also join groups and share tasks with other users in the same group.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+To get started with the project, follow the instructions below:
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Make sure you have the following installed on your machine:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (v14.x.x or higher)
+- npm (v6.x.x or higher)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository to your local machine:
 
-### `npm run build`
+```bash
+git clone https://github.com/your-username/task-management-system.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd task-management-system
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install the project dependencies:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Run the development server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Open your web browser and go to `http://localhost:3000` to access the application.
 
-## Learn More
+### Login Credentials
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To access the task management system, use the following login credentials:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Username: user
+- Password: password
 
-### Code Splitting
+### Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The project uses the following dependencies:
 
-### Analyzing the Bundle Size
+- React (v17.x.x) - JavaScript library for building user interfaces.
+- styled-components (v5.x.x) - CSS-in-JS library for styling components.
+- react-spring (v9.x.x) - Animation library for React.
+- react-toastify (v8.x.x) - Notification library for React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Features
 
-### Making a Progressive Web App
+- User login with username and password.
+- User can join different groups.
+- Each group has its own set of tasks.
+- Users can add, complete, and delete tasks in their respective groups.
+- Real-time updates for task changes within a group.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## API Integration
 
-### Advanced Configuration
+The application is integrated with a mock API that simulates data sharing between users in the same group. The API is implemented using JavaScript's `Promise` to mimic asynchronous behavior. The API functions can be found in the `MockApi/MockApi.js` file.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future Improvements
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Implement user registration functionality.
+- Add user authentication and authorization with a backend server.
+- Replace the mock API with a real backend API for data storage.
+- Enhance the UI with more styling and animations.
